@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Login · SecureShare{% endblock %}
+{% block content %}
+<div class="auth-wrapper">
+    <section class="auth-card">
+        <div class="auth-icon">🔐</div>
+        <h1>Welcome back</h1>
+        <p class="muted">Log in to access your secure files.</p>
+        <form method="post" class="clean-form">
+            <label>Username
+                <input name="username" placeholder="Enter your username" required>
+            </label>
+            <label>Password
+                <input type="password" name="password" placeholder="Enter your password" required>
+            </label>
+            <button class="primary-button">Login securely</button>
+        </form>
+        <p class="auth-footer">Don't have an account? <a href="{{ url_for('signup') }}">Create one</a></p>
+    </section>
+</div>
+{% endblock %}

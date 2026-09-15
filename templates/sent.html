@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Sent files · SecureShare{% endblock %}
+{% block content %}
+<section class="content-header">
+    <p class="eyebrow">YOUR TRANSFERS</p>
+    <h1>Sent files</h1>
+    <p class="muted">A record of the files you have shared.</p>
+</section>
+{% for file in files %}
+<section class="file-card">
+    <div class="file-icon">📤</div>
+    <div class="file-details">
+        <h3>{{ file.filename }}</h3>
+        <p>To <strong>{{ file.receiver_name }}</strong></p>
+        <span class="file-date">{{ file.uploaded_at }}</span>
+    </div>
+    <span class="status-badge">Encrypted</span>
+</section>
+{% else %}
+<div class="empty-state"><div>📁</div><h3>No sent files</h3><p>You have not shared any files yet.</p></div>
+{% endfor %}
+{% endblock %}

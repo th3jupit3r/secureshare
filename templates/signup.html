@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Create account · SecureShare{% endblock %}
+{% block content %}
+<div class="auth-wrapper">
+    <section class="auth-card">
+        <div class="auth-icon">🛡️</div>
+        <h1>Create your account</h1>
+        <p class="muted">Register to start sharing encrypted files.</p>
+        <form method="post" class="clean-form">
+            <label>Username
+                <input name="username" placeholder="Choose a username" required>
+            </label>
+            <label>Password
+                <input type="password" name="password" placeholder="Choose a password" required>
+            </label>
+            <button class="primary-button">Create account</button>
+        </form>
+        <p class="auth-footer">Already registered? <a href="{{ url_for('login') }}">Log in</a></p>
+    </section>
+</div>
+{% endblock %}

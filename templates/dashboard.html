@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard · SecureShare{% endblock %}
+{% block content %}
+<section class="hero-card">
+    <div>
+        <p class="eyebrow">SECURE FILE SHARING</p>
+        <h1>Welcome, {{ session.get('username') }} 👋</h1>
+        <p class="hero-text">Share files securely using AES-256 encryption and RSA public-key protection.</p>
+    </div>
+    <div class="hero-lock">🔒</div>
+</section>
+
+<h2 class="section-title">What would you like to do?</h2>
+<div class="feature-grid">
+    <a class="feature-card" href="{{ url_for('upload') }}">
+        <div class="feature-icon blue">📤</div>
+        <h3>Upload a file</h3>
+        <p>Encrypt a file and securely share it with another registered user.</p>
+        <span class="card-link">Start sharing →</span>
+    </a>
+    <a class="feature-card" href="{{ url_for('inbox') }}">
+        <div class="feature-icon green">📥</div>
+        <h3>Files shared with me</h3>
+        <p>View received files and decrypt them when you are the intended receiver.</p>
+        <span class="card-link">Open inbox →</span>
+    </a>
+    <a class="feature-card" href="{{ url_for('sent') }}">
+        <div class="feature-icon purple">📁</div>
+        <h3>Files I've sent</h3>
+        <p>Review the files you have shared with other users.</p>
+        <span class="card-link">View sent files →</span>
+    </a>
+</div>
+
+<div class="info-banner">
+    <strong>How it works:</strong> Your file is encrypted with AES-256. The AES key is then protected using the receiver's RSA public key.
+</div>
+{% endblock %}

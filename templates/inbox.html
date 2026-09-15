@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Inbox · SecureShare{% endblock %}
+{% block content %}
+<section class="content-header">
+    <p class="eyebrow">YOUR RECEIVED FILES</p>
+    <h1>Inbox</h1>
+    <p class="muted">Files that other users have shared with you.</p>
+</section>
+{% for file in files %}
+<section class="file-card">
+    <div class="file-icon">📄</div>
+    <div class="file-details">
+        <h3>{{ file.filename }}</h3>
+        <p>From <strong>{{ file.sender_name }}</strong></p>
+        <span class="file-date">{{ file.uploaded_at }}</span>
+    </div>
+    <a class="secondary-button" href="{{ url_for('download', file_id=file.id) }}">🔓 Decrypt & Download</a>
+</section>
+{% else %}
+<div class="empty-state"><div>📭</div><h3>Your inbox is empty</h3><p>No files have been shared with you yet.</p></div>
+{% endfor %}
+{% endblock %}
